@@ -1,5 +1,4 @@
 
-
 import math
 import numpy as np
 import pandas as pd
@@ -10,11 +9,10 @@ from bokeh.models import ColumnDataSource, HoverTool, PrintfTickFormatter
 from bokeh.models.tickers import SingleIntervalTicker
 from bokeh.plotting import figure
 from bokeh.transform import factor_cmap
-from waitress import serve
 
 from flask import Flask, render_template, request
 
-df = pd.read_csv('../Datas/titanic.csv')
+df = pd.read_csv('data/titanic.csv')
 df['Title'] = df['Name'].apply(lambda x: x.split(',')[1].strip().split(' ')[0])
 
 ########################################################################################################################
@@ -208,4 +206,4 @@ def age_hist(dataset, title, color=palette[1]):
     return p
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug=True)
