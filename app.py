@@ -10,6 +10,7 @@ from bokeh.models import ColumnDataSource, HoverTool, PrintfTickFormatter
 from bokeh.models.tickers import SingleIntervalTicker
 from bokeh.plotting import figure
 from bokeh.transform import factor_cmap
+from waitress import serve
 
 from flask import Flask, render_template, request
 
@@ -207,4 +208,4 @@ def age_hist(dataset, title, color=palette[1]):
     return p
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
